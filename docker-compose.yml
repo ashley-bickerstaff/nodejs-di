@@ -1,0 +1,15 @@
+# Set the version of docker compose to use
+version: '3.9'
+
+# The containers that compose the project
+services:
+  db:
+    image: postgres:13
+    restart: always
+    container_name: test-db
+    ports:
+      - '5433:5432'
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
